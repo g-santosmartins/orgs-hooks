@@ -1,7 +1,7 @@
 
 const header = {
-    boasVindas: "Olá Guilherme",
-    legenda: "Encontre os melhores produtores",
+    welcomeTitle: "Olá Guilherme",
+    subtitle: "Encontre os melhores produtores",
 };
 
 export default header;
