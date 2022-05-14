@@ -10,37 +10,37 @@ const generateRandomNumber = (min, max) => {
 }
 
 const producers = {
-    titulo: "Produtores",
-    lista: [
+    title: "Produtores",
+    list: [
         {
-            nome: "Green",
-            imagem: green,
-            distancia: `${generateRandomNumber(1, 500)}m`,
-            estrelas: generateRandomNumber(1, 5),
+            name: "Green",
+            image: green,
+            distance: `${generateRandomNumber(1, 500)}m`,
+            stars: generateRandomNumber(1, 5),
         },
         {
-            nome: "Salad",
-            imagem: salad,
-            distancia: `${generateRandomNumber(1, 500)}m`,
-            estrelas: generateRandomNumber(1, 5),
+            name: "Salad",
+            image: salad,
+            distance: `${generateRandomNumber(1, 500)}m`,
+            stars: generateRandomNumber(1, 5),
         },
         {
-            nome: "Jenny Jack Farm",
-            imagem: jennyJack,
-            distancia: `${generateRandomNumber(1, 500)}m`,
-            estrelas: generateRandomNumber(1, 5),
+            name: "Jenny Jack Farm",
+            image: jennyJack,
+            distance: `${generateRandomNumber(1, 500)}m`,
+            stars: generateRandomNumber(1, 5),
         },
         {
-            nome: "Grow",
-            imagem: grow,
-            distancia: `${generateRandomNumber(1, 500)}m`,
-            estrelas: generateRandomNumber(1, 5),
+            name: "Grow",
+            image: grow,
+            distance: `${generateRandomNumber(1, 500)}m`,
+            stars: generateRandomNumber(1, 5),
         },
         {
-            nome: "Potager",
-            imagem: potager,
-            distancia: `${generateRandomNumber(1, 500)}m`,
-            estrelas: generateRandomNumber(1, 5),
+            name: "Potager",
+            image: potager,
+            distance: `${generateRandomNumber(1, 500)}m`,
+            stars: generateRandomNumber(1, 5),
         }
     ]
 }
