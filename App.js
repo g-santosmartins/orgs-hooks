@@ -40,7 +40,7 @@ const App= () => {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
           <View>
-            <Text>Algo aqui </Text>
+            <Text>Atualizando... </Text>
           </View>
       </ScrollView>
     </SafeAreaView>
