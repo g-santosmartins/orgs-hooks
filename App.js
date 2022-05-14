@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+import Home from './src/screen/Home';
 import {
   SafeAreaView,
   ScrollView,
@@ -36,13 +37,7 @@ const App= () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-          <View>
-            <Text>Atualizando... </Text>
-          </View>
-      </ScrollView>
+      <Home/>
     </SafeAreaView>
   );
 };
