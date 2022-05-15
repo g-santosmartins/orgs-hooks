@@ -5,8 +5,8 @@ import Producers from "./components/Producers";
 
 export default function Home() {
     return <>
-         <Header/>
-         <Producers/>
+        
+         <Producers header={Header}/>
     </>
 
 }
