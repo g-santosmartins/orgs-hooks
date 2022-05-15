@@ -1,4 +1,4 @@
-import React, {useState, useReducer} from 'react';
+import React, { useState, useReducer, useMemo } from 'react';
 import {
   View,
   Text,
@@ -8,18 +8,29 @@ import {
 } from 'react-native';
 import Stars from '../../../components/Stars';
 
+// Can be external
+const inMeterDistance = (distance) => {
+  console.log("Chamando a função")
+  return `${distance}m`
+}
+
 export default function Producer({ name, image, distance, stars }) {
 
   // new hook type call
   const [maximized, selectedInversion] = useReducer(
-    (maximized) => !maximized, 
+    (maximized) => !maximized,
     false
   )
-
+  // Save to prevent rendering with no purpose
+  const textDistance = useMemo(
+    (() => inMeterDistance(distance)),
+    [distance]
+  )
+  
   return (
     <TouchableOpacity
-    onPress={selectedInversion} 
-    style={styles.card}
+      onPress={selectedInversion}
+      style={styles.card}
     >
       <Image
         style={styles.cardImage}
@@ -30,13 +41,13 @@ export default function Producer({ name, image, distance, stars }) {
 
         <View>
           <Text style={styles.cardName}>{name}</Text>
-          <Stars 
-          quantity={stars} 
-          maximized={maximized} 
-          editable={maximized}/>
+          <Stars
+            quantity={stars}
+            maximized={maximized}
+            editable={maximized} />
         </View>
 
-        <Text style={styles.cardDistance}>{distance}</Text>
+        <Text style={styles.cardDistance}>{textDistance}</Text>
       </View>
     </TouchableOpacity>
   );
