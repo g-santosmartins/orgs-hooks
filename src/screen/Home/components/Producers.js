@@ -7,11 +7,11 @@ import Producer from "./Producer";
 export default function Producers({ header: Header }) {
 
     // Custom hook react
-    const [title, list] =  useProducers()
+    const [title, list] = useProducers()
 
     const ListHeader = () => {
         return (<>
-            <Header/>
+            <Header />
             <Text style={styles.title}>{title}</Text>
         </>
         )
@@ -20,10 +20,14 @@ export default function Producers({ header: Header }) {
     // list
     return (
         <FlatList
-        style={styles.flatlist}
-            data={list}
+            style={styles.flatlist}
+            data={
+                // sorting string inside the elements
+                list.sort((a, b) =>
+                    a.distance.localeCompare(b.distance))
+            }
             // destructuring the item into {name, distance, stars}
-            renderItem={({ item }) => <Producer {...item}/>}
+            renderItem={({ item }) => <Producer {...item} />}
             // keys on map:
             keyExtractor={({ id }) => id}
             ListHeaderComponent={ListHeader}
