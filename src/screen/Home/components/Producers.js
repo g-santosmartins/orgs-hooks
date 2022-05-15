@@ -6,7 +6,7 @@ import Producer from "./Producer";
 export default function Producers({ header: Header }) {
 
     //debug controller
-    const DEBUG = true
+    const DEBUG = false
 
     const [producersTitle, setProducerTitle] = useState()
     const [producersList, setProducerList] = useState([])

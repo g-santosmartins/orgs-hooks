@@ -1,20 +1,42 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity
+} from 'react-native';
+import Stars from '../../../components/Stars';
 
 export default function Producer({ name, image, distance, stars }) {
+
+  // controls the stars size on click
+  const [maximazed, setMaximized] = useState(false)
+
   return (
-    <View style={styles.card}>
+    <TouchableOpacity
+    onPress={() => setMaximized(!maximazed)} 
+    style={styles.card}
+    >
       <Image
         style={styles.cardImage}
         source={image}
         accessibilityLabel={name} // screen readers support
       />
       <View style={styles.cardInfo} >
-        <Text style={styles.cardName}>{name}</Text>
+
+        <View>
+          <Text style={styles.cardName}>{name}</Text>
+          <Stars 
+          quantity={stars} 
+          maximized={maximazed} 
+          editable={maximazed}/>
+        </View>
+
         <Text style={styles.cardDistance}>{distance}</Text>
         {/* <Text>{stars}</Text> */}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -39,7 +61,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2.62,
 
   },
-  
+
   cardImage: {
     width: 48,
     height: 48,
