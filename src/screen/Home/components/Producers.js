@@ -1,30 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Text, FlatList, StyleSheet } from 'react-native'
+import { useProducers } from "../../../hooks/useProducers";
 import { LoadProducers } from "../../../services/LoadingData";
 import Producer from "./Producer";
 
 export default function Producers({ header: Header }) {
 
-    //debug controller
-    const DEBUG = false
-
-    const [producersTitle, setProducerTitle] = useState()
-    const [producersList, setProducerList] = useState([])
-    useEffect(() => {
-        // Chamando a função para popular o estado:
-        const { list, title } = LoadProducers()
-        setProducerTitle(title)
-        setProducerList(list)
-
-        // testing and debugging info:
-        if (DEBUG) console.log("TITLE PRODUCERS", title)
-        if (DEBUG) console.log("LIST PRODUCERS", list)
-    }, [])
+    // Custom hook react
+    const [title, list] =  useProducers()
 
     const ListHeader = () => {
         return (<>
             <Header/>
-            <Text style={styles.title}>{producersTitle}</Text>
+            <Text style={styles.title}>{title}</Text>
         </>
         )
     }
@@ -33,7 +21,7 @@ export default function Producers({ header: Header }) {
     return (
         <FlatList
         style={styles.flatlist}
-            data={producersList}
+            data={list}
             // destructuring the item into {name, distance, stars}
             renderItem={({ item }) => <Producer {...item}/>}
             // keys on map:
