@@ -1,6 +1,6 @@
 
 const header = {
-    welcomeTitle: "Olá Guilherme",
+    welcomeTitle: "Bem-vindo Guilherme,",
     subtitle: "Encontre os melhores produtores",
 };
 

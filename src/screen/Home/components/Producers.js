@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Text, FlatList, StyleSheet } from 'react-native'
 import { LoadProducers } from "../../../services/LoadingData";
+import Producer from "./Producer";
 
 export default function Producers({ header: Header }) {
 
-    const DEBUG = false
+    //debug controller
+    const DEBUG = true
+
     const [producersTitle, setProducerTitle] = useState()
     const [producersList, setProducerList] = useState([])
     useEffect(() => {
@@ -13,8 +16,9 @@ export default function Producers({ header: Header }) {
         setProducerTitle(title)
         setProducerList(list)
 
-        // testing if info is coming
-        if (DEBUG) console.log("INFO PRODUTORES", producersInfo)
+        // testing and debugging info:
+        if (DEBUG) console.log("TITLE PRODUCERS", title)
+        if (DEBUG) console.log("LIST PRODUCERS", list)
     }, [])
 
     const ListHeader = () => {
@@ -25,14 +29,13 @@ export default function Producers({ header: Header }) {
         )
     }
 
-
-
     // list
     return (
         <FlatList
         style={styles.flatlist}
             data={producersList}
-            renderItem={({ item: { name } }) => <Text>{name}</Text>}
+            // destructuring the item into {name, distance, stars}
+            renderItem={({ item }) => <Producer {...item}/>}
             // keys on map:
             keyExtractor={({ nome }) => nome}
             ListHeaderComponent={ListHeader}
