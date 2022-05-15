@@ -37,7 +37,7 @@ export default function Producers({ header: Header }) {
             // destructuring the item into {name, distance, stars}
             renderItem={({ item }) => <Producer {...item}/>}
             // keys on map:
-            keyExtractor={({ nome }) => nome}
+            keyExtractor={({ id }) => id}
             ListHeaderComponent={ListHeader}
         />
     )
