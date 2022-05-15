@@ -12,9 +12,9 @@ import grayStar from '../assets/estrelaCinza.png'
 
 export function Star({
     onPress,
+    maximazed = false,
     disabled = false,
     filled,
-    maximazed = false
 }) {
 
 

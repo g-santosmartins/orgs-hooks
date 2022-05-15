@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useReducer} from 'react';
 import {
   View,
   Text,
@@ -10,12 +10,15 @@ import Stars from '../../../components/Stars';
 
 export default function Producer({ name, image, distance, stars }) {
 
-  // controls the stars size on click
-  const [maximazed, setMaximized] = useState(false)
+  // new hook type call
+  const [maximized, selectedInversion] = useReducer(
+    (maximized) => !maximized, 
+    false
+  )
 
   return (
     <TouchableOpacity
-    onPress={() => setMaximized(!maximazed)} 
+    onPress={selectedInversion} 
     style={styles.card}
     >
       <Image
@@ -29,12 +32,11 @@ export default function Producer({ name, image, distance, stars }) {
           <Text style={styles.cardName}>{name}</Text>
           <Stars 
           quantity={stars} 
-          maximized={maximazed} 
-          editable={maximazed}/>
+          maximized={maximized} 
+          editable={maximized}/>
         </View>
 
         <Text style={styles.cardDistance}>{distance}</Text>
-        {/* <Text>{stars}</Text> */}
       </View>
     </TouchableOpacity>
   );
